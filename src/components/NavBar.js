@@ -1,44 +1,42 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar, Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const Styles = styled.div`
-  .navbar {
-    background-color: #222;
+.nav {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 4.5%;
+  opacity: 0.7;
+  background-color: white;
+  top: 0;
+}
+/* Changes the color of the nav menu item's text color and hover color */
+.nav-link {
+  font-size: 16px;
+  color: black;
+  &:hover {
+    color: red;
+    border-bottom: 4px solid red;
   }
-  a, .navbar-brand, .navbar-nav .nav-link {
-    color: #bbb;
-    &:hover {
-      color: white;
-    }
-  }
+}
+.navitem:global(.active) {
+  background-color: red;
+  border-bottom: 4px solid red;
+}
 `;
 
 export const NavigationBar = () => (
   <Styles>
-    <Navbar expand="lg">
-      <Navbar.Brand href="/">Code Life</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/">Home</Link>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/about">About</Link>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/contact">Contact</Link>
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  </Styles >
+    <Nav className="justify-content-center" activeKey={Nav.activeKey}>
+      <Nav.Item>
+        <Nav.Link eventKey={1}><Link to="Home" smooth duration={750}>Home</Link></Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey={2}><Link to="Contact" smooth duration={750}>Contact</Link></Nav.Link>
+      </Nav.Item>
+    </Nav>
+  </Styles>
 )
