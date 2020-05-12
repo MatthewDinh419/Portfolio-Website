@@ -1,9 +1,10 @@
 import React from 'react';
-import { Nav, Navbar, Container, Row, Col } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import styled from 'styled-components';
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 const Styles = styled.div`
+/* Fixed top and styling options for nav bar */
 .nav {
   position: fixed;
   display: flex;
@@ -12,30 +13,30 @@ const Styles = styled.div`
   opacity: 0.7;
   background-color: white;
   top: 0;
+  margin-bottom: 0px;
+  /* Make sure that the nav bar is on top of everything else */
+  z-index: 1000;
 }
 /* Changes the color of the nav menu item's text color and hover color */
 .nav-link {
   font-size: 16px;
   color: black;
   &:hover {
+    cursor: pointer;
     color: red;
     border-bottom: 4px solid red;
   }
-}
-.navitem:global(.active) {
-  background-color: red;
-  border-bottom: 4px solid red;
 }
 `;
 
 export const NavigationBar = () => (
   <Styles>
-    <Nav className="justify-content-center" activeKey={Nav.activeKey}>
+    <Nav className="justify-content-center">
       <Nav.Item>
-        <Nav.Link eventKey={1}><Link to="Home" smooth duration={750}>Home</Link></Nav.Link>
+        <Nav.Link as={Link} to="Home" smooth duration={750}>Home</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey={2}><Link to="Contact" smooth duration={750}>Contact</Link></Nav.Link>
+      <Nav.Link as={Link} to="Contact" smooth duration={750}>Contact</Nav.Link>
       </Nav.Item>
     </Nav>
   </Styles>
