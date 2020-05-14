@@ -1,12 +1,14 @@
 import React from 'react';
 import { Row, Col, Button, Jumbotron as Jumbo } from 'react-bootstrap';
 import styled from 'styled-components';
-import mincoffee from './assets/mincoffee.jpeg';
-import { FaGithub, FaRegEnvelope, FaLinkedin, FaGripLinesVertical } from 'react-icons/fa';
+import contact_city from './assets/contact-city.jpg';
+import { FaGithub, FaRegEnvelope, FaLinkedin } from 'react-icons/fa';
+import Fade from 'react-reveal/Fade';
+import './index.css';
 
 const Styles = styled.div`
   .jumbo {
-    background: url(${mincoffee}) no-repeat;
+    background: url(${contact_city}) no-repeat;
     background-size: cover;
     height: 100vh;
     position: relative;
@@ -25,11 +27,13 @@ const Styles = styled.div`
 `;
 
 const SecondaryWrapper = styled.section`
-    width: 60%;
-    padding-top: 200px;
+    padding-top: 150px;
+    overflow: hidden;
+    /* Adjusts distance between Contact text and buttons */
     .row-center {
         padding-top: 25px;
     }
+    /* Adjusts distance between button and button descriptions */
     .row-text {
         margin-top: -18px;
     }
@@ -42,30 +46,36 @@ const H1 = styled.h1`
     text-align: center;
     margin-right: 15px;
     font-size: 80px;
+    font-weight: bold;
+    font-family: 'Roboto';
 `;
 
-export const Contact = () => (
-    <Styles>
-        <Jumbo fluid className="jumbo">
-            <SecondaryWrapper>
-                <H1>Contact</H1>
-                <Row className="justify-content-md-center row-center">
-                    <Col className="text-center" md={{span: 2}}>
-                        <Button className="button-socials" target="_blank" rel="noopener noreferrer"  href='https://github.com/matthewdinh419'><FaGithub size="5rem"/></Button>
-                    </Col>
-                    <Col className="text-center" md={{span: 2}}>
-                        <Button className="button-socials" target="_blank" rel="noopener noreferrer"  href='https://www.linkedin.com/in/matthew-dinh-b1816315b/'><FaLinkedin size="5rem"/></Button>
-                    </Col>
-                    <Col className="text-center" md={{span: 2}}>
-                        <Button className="button-socials" href='mailto:matthewdinhproductions@gmail.com'><FaRegEnvelope size="5rem"/></Button>
-                    </Col>
-                </Row>
-                <Row className="justify-content-md-center row-center">
-                    <Col className="text-center row-text" md={{span: 2}}><b>GitHub</b></Col>
-                    <Col className="text-center row-text" md={{span: 2}}><b>Linkedin</b></Col>
-                    <Col className="text-center row-text" md={{span: 2}}><b>Email</b></Col>
-                </Row>
-            </SecondaryWrapper>
-        </Jumbo>
-  </Styles>
-)
+export const Contact = () => {
+    return(
+        <Styles>
+            <Jumbo fluid className="jumbo">
+                <SecondaryWrapper>
+                    <H1>Contact</H1>
+                    <Fade bottom>
+                    <Row className="justify-content-md-center row-center">
+                        <Col className="text-center" md={{span: 1}}>
+                            <Button className="button-socials" target="_blank" rel="noopener noreferrer"  href='https://github.com/matthewdinh419'><FaGithub size="5rem"/></Button>
+                        </Col>
+                        <Col className="text-center" md={{span: 1}}>
+                            <Button className="button-socials" target="_blank" rel="noopener noreferrer"  href='https://www.linkedin.com/in/matthew-dinh-b1816315b/'><FaLinkedin size="5rem"/></Button>
+                        </Col>
+                        <Col className="text-center" md={{span: 1}}>
+                            <Button className="button-socials" href='mailto:matthewdinhproductions@gmail.com'><FaRegEnvelope size="5rem"/></Button>
+                        </Col>
+                    </Row>
+                    <Row className="justify-content-md-center row-center">
+                        <Col className="text-center row-text" md={{span: 1}}><b>GitHub</b></Col>
+                        <Col className="text-center row-text" md={{span: 1}}><b>Linkedin</b></Col>
+                        <Col className="text-center row-text" md={{span: 1}}><b>Email</b></Col>
+                    </Row>
+                    </Fade>
+                </SecondaryWrapper>
+            </Jumbo>
+    </Styles>
+    );
+};

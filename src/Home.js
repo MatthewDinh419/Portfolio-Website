@@ -1,11 +1,13 @@
 import React from 'react';
-import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
+import { Jumbotron as Jumbo, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
-import minroom from './assets/minroom.jpeg';
+import lightbulb from './assets/lightbulb.jpg';
+import './index.css'
+import Fade from 'react-reveal/Fade';
 
 const Styles = styled.div`
   .jumbo {
-    background: url(${minroom}) no-repeat;
+    background: url(${lightbulb}) no-repeat;
     background-size: cover;
     color: #efefef;
     height: 100vh;
@@ -13,8 +15,10 @@ const Styles = styled.div`
     z-index: -2;
     margin-bottom: 0px; 
   }
+  /* Used potentially if wanting to create an opacity layer over jumbo image */
   .overlay {
-    backdrop-filter: blur(6px);
+    background-color: #000;
+    opacity: 0.2;
     position: absolute;
     top: 0;
     left: 0;
@@ -22,19 +26,45 @@ const Styles = styled.div`
     right: 0;
     z-index: -1;
   }
-`;
-const H1 = styled.div`
-    color: black;
-    position: relative;
-    top: 15vh;
-    text-align: center;
-    font-size: 80px;
+  /* Creates a container that is from the left of the page to the left edge of the lightbulb */
+  .secondary-container {
+    position: absolute;
+    top: 35%;
+    width: 54%;
+    height: 100vh;
+  }
+  /* Distance between the description text and red horizontal line */
+  .line-spacing {
+    margin-bottom: 40px;
+  }
 `;
 
+// Name text styling
+const H1 = styled.div`
+    color: white;
+    font-size: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+`;
+
+// Horizontal red line styling
+const ColoredLine = ({ color }) => (
+  <hr
+      style={{
+          color: color,
+          backgroundColor: color,
+          height: 4,
+          width: 50,
+      }}
+  />
+);
+
+// Typewriter effect text
 const P = styled.div`
-    color: black;
+    color: white;
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
     position: relative;
-    top: 15vh;
     margin: 0 auto;
     border-right: 2px solid rgba(255, 255, 255, 0.75);
     font-size: 150%;
@@ -42,10 +72,10 @@ const P = styled.div`
     white-space: nowrap;
     overflow: hidden;
     transform: translateY(-50%);
-
+    height: 30px;
     /* Animations using css */
-    animation: typewriter 2s steps(40) 1s 1 normal both,
-    blinkTextCursor 500ms steps(40) infinite normal;
+    animation: typewriter 2s steps(40) 0.5s 1 normal both,
+    blinkTextCursor 750ms steps(40) infinite normal;
     @keyframes typewriter {
       from {
             width: 0;
@@ -57,9 +87,11 @@ const P = styled.div`
 
     @keyframes blinkTextCursor {
         from {
-                border-right-color: black;
+                border-right-width: 10px;
+                border-right-color: white;
         }
         to {
+                border-right-width: 10px;
                 border-right-color: transparent;
         }
     }
@@ -68,10 +100,25 @@ const P = styled.div`
 export const Home = () => (
   <Styles>
     <Jumbo fluid className="jumbo">
-      <Container>
-        <H1>Matthew Dinh</H1>
-        <P>Building apps that help others...</P>
-      </Container>
+      <div className="secondary-container">
+        <Fade cascade>
+        <Row className="justify-content-md-center">
+            <Col className="text-center">
+              <H1>Matthew Dinh</H1>
+            </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+            <Col className="line-spacing">
+              <ColoredLine color="red" />
+            </Col>
+        </Row>
+        <Row className="justify-content-md-center">
+            <Col className="text-center">
+              <P>Building apps that help others</P> 
+            </Col>
+        </Row>
+        </Fade>
+      </div>
     </Jumbo>
   </Styles>
 )
