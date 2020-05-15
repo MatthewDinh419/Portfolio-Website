@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Home } from './Home';
 import { Contact } from './Contact';
+import { Projects } from './Projects';
 import { Nav } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Link } from "react-scroll";
@@ -19,7 +20,7 @@ const NavNew = styled.nav`
   
   /* Nav bar items styling */
   .nav-link {
-    font-size: 23px;
+    font-size: 20px;
     &:hover {
       cursor: pointer;
       color: red;
@@ -35,7 +36,7 @@ class App extends Component {
   componentDidMount() {
     // Will change the text color of the navbar items when the user scrolls to the next section
     document.addEventListener("scroll", () => {
-      const black_boolean = window.scrollY < 940 ? false : true;
+      const black_boolean = window.scrollY < 1910 ? false : true;
       this.setState({ black: black_boolean });
     });
   }
@@ -47,11 +48,17 @@ class App extends Component {
             <Nav.Link as={Link} to="Home" smooth duration={750}>Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-          <Nav.Link as={Link} to="Contact" smooth duration={750}>Contact</Nav.Link>
+            <Nav.Link as={Link} to="Projects" smooth duration={750}>Projects</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="Contact" smooth duration={750}>Contact</Nav.Link>
           </Nav.Item>
         </NavNew>
         <div id="Home">
           <Home />
+        </div>
+        <div id="Projects">
+          <Projects />
         </div>
         <div id="Contact">
           <Contact />

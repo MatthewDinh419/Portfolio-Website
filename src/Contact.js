@@ -2,16 +2,16 @@ import React from 'react';
 import { Row, Col, Button, Jumbotron as Jumbo } from 'react-bootstrap';
 import styled from 'styled-components';
 import contact_city from './assets/contact-city.jpg';
-import { FaGithub, FaRegEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaRegEnvelope, FaLinkedin, FaRegFilePdf } from 'react-icons/fa';
 import Fade from 'react-reveal/Fade';
 import './index.css';
+import resume from './assets/Resume.pdf';
 
 const Styles = styled.div`
   .jumbo {
     background: url(${contact_city}) no-repeat;
     background-size: cover;
     height: 100vh;
-    position: relative;
     margin-bottom: 0;
   }
   .button-socials {
@@ -22,7 +22,7 @@ const Styles = styled.div`
     &:hover {
         background-color: #5997f0;
         border-style: hidden;
-  }
+    }
   }
 `;
 
@@ -67,11 +67,15 @@ export const Contact = () => {
                         <Col className="text-center" md={{span: 1}}>
                             <Button className="button-socials" href='mailto:matthewdinhproductions@gmail.com'><FaRegEnvelope size="5rem"/></Button>
                         </Col>
+                        <Col className="text-center" md={{span: 1}}>
+                            <Button className="button-socials" target="_blank" rel="noopener noreferrer" href={resume}><FaRegFilePdf size="5rem"/></Button>
+                        </Col>
                     </Row>
                     <Row className="justify-content-md-center row-center">
                         <Col className="text-center row-text" md={{span: 1}}><b>GitHub</b></Col>
                         <Col className="text-center row-text" md={{span: 1}}><b>Linkedin</b></Col>
                         <Col className="text-center row-text" md={{span: 1}}><b>Email</b></Col>
+                        <Col className="text-center row-text" md={{span: 1}}><b>Resume</b></Col>
                     </Row>
                     </Fade>
                 </SecondaryWrapper>
