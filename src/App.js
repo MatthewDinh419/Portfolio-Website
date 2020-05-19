@@ -34,6 +34,7 @@ class App extends Component {
     black: false
   }
   componentDidMount() {
+    document.title = "Matthew Dinh";
     // Will change the text color of the navbar items when the user scrolls to the next section
     document.addEventListener("scroll", () => {
       const black_boolean = window.scrollY < 1910 ? false : true;

@@ -49,11 +49,9 @@ const Styles = styled.div`
     .button-socials {
         color: black;
         background-color: #e0e0e0;
-        /* background-color: #2F7AE5; */
         border-style: hidden;
         
         &:hover {
-            /* background-color: #5997f0; */
             background-color: #ededed;
             border-style: hidden;
         }
@@ -66,12 +64,11 @@ const Styles = styled.div`
     .bot-row-spacing {
         margin-top: -500px;
     }
+    /* Changes the height of the buttons in the project navigation */
     .btn-group {
         height: 50px;
     }
-    .button {
-        outline: none;
-    }
+    /* Changes the styling of the buttons in the project navigation */
     .button-switch {
         background-color: #656c70;
         border-color: black;
@@ -101,7 +98,7 @@ const ColoredLine = styled.hr `
 `;
 
 export const Projects = () => {
-    // Will change the text color of the navbar items when the user scrolls to the next section
+    // Will transition the project card views
     function PageOne() {
         document.getElementById("pagetwo").style.display="none";
         document.getElementById("pageone-rowone").style.display="flex";
