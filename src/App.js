@@ -51,7 +51,7 @@ class App extends Component {
             <Nav.Link as={Link} to="Projects" smooth duration={750}>Projects</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="Contact" smooth duration={750}>Contact</Nav.Link>
+            <Nav.Link as={Link} to="Contact" smooth duration={750}>Links</Nav.Link>
           </Nav.Item>
         </NavNew>
         <div id="Home">

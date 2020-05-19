@@ -9,6 +9,7 @@ const Styles = styled.div`
   .jumbo {
     background: url(${lightbulb}) no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     color: #efefef;
     height: 100vh;
     position: relative;

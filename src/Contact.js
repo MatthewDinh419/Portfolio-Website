@@ -11,16 +11,18 @@ const Styles = styled.div`
   .jumbo {
     background: url(${contact_city}) no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
     margin-bottom: 0;
   }
   .button-socials {
     color: white;
-    background-color: #2F7AE5;
+    /* background-color: #2F7AE5; */
+    background-color: #656c70;
     border-style: hidden;
     
     &:hover {
-        background-color: #5997f0;
+        background-color: #939da3;
         border-style: hidden;
     }
   }
@@ -55,7 +57,7 @@ export const Contact = () => {
         <Styles>
             <Jumbo fluid className="jumbo">
                 <SecondaryWrapper>
-                    <H1>Contact</H1>
+                    <H1>Links</H1>
                     <Fade bottom>
                     <Row className="justify-content-md-center row-center">
                         <Col className="text-center" md={{span: 1}}>
